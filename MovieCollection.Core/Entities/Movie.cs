@@ -6,8 +6,12 @@ using MovieCollection.Core.Context;
 
 namespace MovieCollection.Core.Entities
 {
-    public class Movie : EntityCatalogBase<long>
+    public class Movie : EntityBase<long>
     {
+        public string Name { get; set; }
+        
+        public string Description { get; set; }
+        
         [ForeignKey("Producer")]
         public long ProducerRefId { get; set; }
         public Producer Producer { get; set; }

@@ -8,7 +8,7 @@ using Microsoft.Extensions.Logging;
 using MovieCollection.Core.Entities;
 using MovieCollection.Core.Interface;
 using MovieCollection.Web.Models;
-using MovieCollection.Web.Models.Movies;
+using MovieCollection.Web.Models.Movie;
 
 namespace MovieCollection.Web.Controllers
 {
@@ -28,8 +28,12 @@ namespace MovieCollection.Web.Controllers
 
         #region [ Methods ]
         [HttpGet]
-        public IActionResult Index(long pageIndex = 0, long pageSize = PageSize)
+        public async Task<IActionResult> Index(long pageIndex = 0, long pageSize = PageSize)
         {
+            var movies = await _movieRepository.ReadAsync(
+                new MovieFilter { PageIndex = pageIndex, PageSize = pageSize });
+            
+            
             return View();
         }
 

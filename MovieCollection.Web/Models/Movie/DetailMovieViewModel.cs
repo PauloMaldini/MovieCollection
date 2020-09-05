@@ -1,4 +1,4 @@
-namespace MovieCollection.Web.Models.Movies
+namespace MovieCollection.Web.Models.Movie
 {
     public class DetailMovieViewModel
     {
