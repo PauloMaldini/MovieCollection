@@ -8,4 +8,8 @@
       <ProjectReference Include="..\MovieCollection.Core\MovieCollection.Core.csproj" />
     </ItemGroup>
 
+    <ItemGroup>
+      <Folder Include="Profiles" />
+    </ItemGroup>
+
 </Project>

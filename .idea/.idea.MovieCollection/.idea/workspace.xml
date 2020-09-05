@@ -8,7 +8,20 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e7cfa237-db3b-418c-b300-fa91efb1f5d3" name="Default Changelist" comment="" />
+    <list default="true" id="e7cfa237-db3b-418c-b300-fa91efb1f5d3" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/MovieCollection.Web/Models/MovieDetailViewModel.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/MovieCollection.Web/Models/MovieEditViewModel.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/MovieCollection.Web/Models/MovieListViewModel.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/MovieCollection.Web/Views/Movies/Create.cshtml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/MovieCollection.Web/Views/Movies/Detail.cshtml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/MovieCollection.Web/Views/Movies/Edit.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.MovieCollection/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.MovieCollection/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MovieCollection.Web/Controllers/HomeController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MovieCollection.Web/Controllers/MoviesController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MovieCollection.Web/MovieCollection.Web.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/MovieCollection.Web/MovieCollection.Web.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MovieCollection.Web/Views/Home/Index.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/MovieCollection.Web/Views/Movies/Index.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MovieCollection.Web/Views/Home/Privacy.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/MovieCollection.Web/Views/Movies/Privacy.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MovieCollection.Web/Views/Shared/_Layout.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/MovieCollection.Web/Views/Shared/_Layout.cshtml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -24,7 +37,6 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/MovieCollection.Core/Class1.cs" />
-        <option value="$PROJECT_DIR$/MovieCollection.Core/Base/FilterBase.cs" />
         <option value="$PROJECT_DIR$/MovieCollection.Core/Interface/IFilter.cs" />
         <option value="$PROJECT_DIR$/MovieCollection.Core/Interface/IEntity.cs" />
         <option value="$PROJECT_DIR$/MovieCollection.Core/Base/EntityBase.cs" />
@@ -33,8 +45,20 @@
         <option value="$PROJECT_DIR$/MovieCollection.Core/Interface/IRepository.cs" />
         <option value="$PROJECT_DIR$/MovieCollection.Core/Concrete/EFGenericRepository.cs" />
         <option value="$PROJECT_DIR$/MovieCollection.Core/Base/EntityCatalogBase.cs" />
-        <option value="$PROJECT_DIR$/MovieCollection.Core/Entities/Producer.cs" />
         <option value="$PROJECT_DIR$/MovieCollection.Core/Entities/Movie.cs" />
+        <option value="$PROJECT_DIR$/MovieCollection.Core/Base/FilterBase.cs" />
+        <option value="$PROJECT_DIR$/MovieCollection.Core/Entities/Producer.cs" />
+        <option value="$PROJECT_DIR$/MovieCollection.Web/Controllers/FilmsController.cs" />
+        <option value="$PROJECT_DIR$/MovieCollection.Web/Models/MovieModel.cs" />
+        <option value="$PROJECT_DIR$/MovieCollection.Web/Models/MovieDetailModel.cs" />
+        <option value="$PROJECT_DIR$/MovieCollection.Web/Models/MovieViewModel.cs" />
+        <option value="$PROJECT_DIR$/MovieCollection.Web/Models/MovieDetailViewModel.cs" />
+        <option value="$PROJECT_DIR$/MovieCollection.Web/Models/MovieListViewModel.cs" />
+        <option value="$PROJECT_DIR$/MovieCollection.Web/Views/Movies/Detail.cshtml" />
+        <option value="$PROJECT_DIR$/MovieCollection.Web/Models/MovieEditViewModel.cs" />
+        <option value="$PROJECT_DIR$/MovieCollection.Web/Views/Movies/Create.cshtml" />
+        <option value="$PROJECT_DIR$/MovieCollection.Web/Views/Movies/Edit.cshtml" />
+        <option value="$PROJECT_DIR$/MovieCollection.Web/Controllers/MoviesController.cs" />
       </list>
     </option>
   </component>
@@ -96,7 +120,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1599303646815</updated>
-      <workItem from="1599303650375" duration="1859000" />
+      <workItem from="1599303650375" duration="4302000" />
     </task>
     <servers />
   </component>
