@@ -2,6 +2,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 using Microsoft.EntityFrameworkCore;
 using MovieCollection.Core.Base;
 using MovieCollection.Core.Concrete;
+using MovieCollection.Core.Context;
 
 namespace MovieCollection.Core.Entities
 {
@@ -23,7 +24,7 @@ namespace MovieCollection.Core.Entities
 
     public class MovieRepository : EFGenericRepository<Movie, MovieFilter, long>
     {
-        public MovieRepository(DbContext context) : base(context)
+        public MovieRepository(MovieCollectionContext context) : base(context)
         {
             
         }

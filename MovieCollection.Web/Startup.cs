@@ -5,9 +5,13 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using MovieCollection.Core.Context;
+using MovieCollection.Core.Entities;
+using MovieCollection.Core.Interface;
 
 namespace MovieCollection.Web
 {
@@ -24,6 +28,10 @@ namespace MovieCollection.Web
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
+            services.AddDbContext<MovieCollectionContext>(
+                    builder => builder.UseSqlite("Filename=MovieCollection.db"));
+            
+            services.AddScoped<IRepository<Movie, MovieFilter, long>, MovieRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

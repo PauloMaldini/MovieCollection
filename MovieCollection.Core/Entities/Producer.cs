@@ -1,6 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using MovieCollection.Core.Base;
 using MovieCollection.Core.Concrete;
+using MovieCollection.Core.Context;
 
 namespace MovieCollection.Core.Entities
 {
@@ -16,7 +17,7 @@ namespace MovieCollection.Core.Entities
 
     public class ProducerRepository : EFGenericRepository<Movie, MovieFilter, long>
     {
-        public ProducerRepository(DbContext context) : base(context)
+        public ProducerRepository(MovieCollectionContext context) : base(context)
         {
             
         }

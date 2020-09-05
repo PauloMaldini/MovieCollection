@@ -8,6 +8,7 @@ using Microsoft.Extensions.Logging;
 using MovieCollection.Core.Entities;
 using MovieCollection.Core.Interface;
 using MovieCollection.Web.Models;
+using MovieCollection.Web.Models.Movies;
 
 namespace MovieCollection.Web.Controllers
 {
@@ -51,7 +52,7 @@ namespace MovieCollection.Web.Controllers
         }
 
         [HttpPost]
-        public IActionResult Edit(MovieEditViewModel model)
+        public IActionResult Edit(EditMovieViewModel model)
         {
             return View();
         }
