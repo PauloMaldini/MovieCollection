@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MovieCollection.Web", "MovieCollection.Web\MovieCollection.Web.csproj", "{F875B681-92E3-45D0-87E4-31D76C981FA6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MovieCollection.Core", "MovieCollection.Core\MovieCollection.Core.csproj", "{BB4389E5-EB10-4E1F-9488-1329C41A9EE7}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F875B681-92E3-45D0-87E4-31D76C981FA6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F875B681-92E3-45D0-87E4-31D76C981FA6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F875B681-92E3-45D0-87E4-31D76C981FA6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F875B681-92E3-45D0-87E4-31D76C981FA6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BB4389E5-EB10-4E1F-9488-1329C41A9EE7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BB4389E5-EB10-4E1F-9488-1329C41A9EE7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BB4389E5-EB10-4E1F-9488-1329C41A9EE7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BB4389E5-EB10-4E1F-9488-1329C41A9EE7}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
