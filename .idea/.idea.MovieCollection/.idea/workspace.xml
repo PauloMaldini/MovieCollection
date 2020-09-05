@@ -9,19 +9,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e7cfa237-db3b-418c-b300-fa91efb1f5d3" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/.idea.MovieCollection/.idea/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/.idea.MovieCollection/.idea/indexLayout.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/.idea.MovieCollection/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/.idea.MovieCollection/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MovieCollection.Core/Base/EntityBase.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MovieCollection.Core/Base/EntityCatalogBase.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MovieCollection.Core/Base/FilterBase.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MovieCollection.Core/Concrete/PropertyMapping.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MovieCollection.Core/Concrete/Selection.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MovieCollection.Core/Interface/IEntity.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MovieCollection.Core/Interface/IFilter.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MovieCollection.Core/Interface/IRepository.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/MovieCollection.Core/Entities/Movie.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.MovieCollection/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.MovieCollection/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MovieCollection.Core/Base/EntityCatalogBase.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MovieCollection.Core/Base/EntityCatalogBase.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/MovieCollection.Core/MovieCollection.Core.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/MovieCollection.Core/MovieCollection.Core.csproj" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -46,6 +36,9 @@
         <option value="$PROJECT_DIR$/MovieCollection.Core/Concrete/PropertyMapping.cs" />
         <option value="$PROJECT_DIR$/MovieCollection.Core/Concrete/Selection.cs" />
         <option value="$PROJECT_DIR$/MovieCollection.Core/Interface/IRepository.cs" />
+        <option value="$PROJECT_DIR$/MovieCollection.Core/Concrete/EFGenericRepository.cs" />
+        <option value="$PROJECT_DIR$/MovieCollection.Core/Base/EntityCatalogBase.cs" />
+        <option value="$PROJECT_DIR$/MovieCollection.Core/Entities/Movie.cs" />
       </list>
     </option>
   </component>
@@ -107,7 +100,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1599303646815</updated>
-      <workItem from="1599303650375" duration="834000" />
+      <workItem from="1599303650375" duration="1539000" />
     </task>
     <servers />
   </component>
