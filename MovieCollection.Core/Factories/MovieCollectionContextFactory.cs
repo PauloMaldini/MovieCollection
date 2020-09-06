@@ -13,7 +13,6 @@ namespace MovieCollection.Core.Factories
             //TODO Строку подключения брать из appsettings
             optionsBuilder.UseSqlite("Filename=MovieCollection.db");
             
-            
             return new MovieCollectionContext(optionsBuilder.Options);
         }
     }

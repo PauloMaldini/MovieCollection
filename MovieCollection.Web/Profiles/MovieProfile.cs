@@ -2,6 +2,7 @@ using AutoMapper;
 using MovieCollection.Core.Concrete;
 using MovieCollection.Core.Entities;
 using MovieCollection.Web.Models.Movie;
+using MovieCollection.Web.Models.Movie.Base;
 
 namespace MovieCollection.Web.Profiles
 {
@@ -9,10 +10,14 @@ namespace MovieCollection.Web.Profiles
     {
         public MovieProfile()
         {
-            CreateMap<Movie, MovieModel>()
+            CreateMap<Movie, MovieModelBase>()
+                .Include<Movie, MovieModel>()
+                .Include<Movie, EditMovieViewModel>()
                 .ForMember(x => x.MovieId,
                     y => y.MapFrom(
-                        z => z.Id))
+                        z => z.Id));
+
+            CreateMap<Movie, MovieModel>()
                 .ForMember(x => x.Producer,
                     y => y.MapFrom(
                         z => $"{z.Producer.FirstName} {z.Producer.LastName}"))
@@ -24,8 +29,8 @@ namespace MovieCollection.Web.Profiles
                         z => z.Items));
 
             CreateMap<Movie, DetailMovieViewModel>();
-
-
+            
+            CreateMap<Movie, EditMovieViewModel>();
         }
     }
 }

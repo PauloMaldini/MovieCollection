@@ -19,7 +19,7 @@ namespace MovieCollection.Core.Entities
         
         public int YearOfIssue { get; set; }
         
-        public string Poster { get; set; }
+        public string PosterFileName { get; set; }
     }
 
     public class MovieFilter : FilterBase

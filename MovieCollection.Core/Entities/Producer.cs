@@ -20,14 +20,16 @@ namespace MovieCollection.Core.Entities
         [ForeignKey("Country")]
         public long CountryRefId { get; set; }
         public Country Country { get; set; }
+
+        public string FullName => $"{FirstName}{" " + MiddleName}{" " + LastName}";
     }
     
-    public class MovieProducer : FilterBase
+    public class ProducerFilter : FilterBase
     {
         
     }
 
-    public class ProducerRepository : EFGenericRepository<Movie, MovieFilter, long>
+    public class ProducerRepository : EFGenericRepository<Producer, ProducerFilter, long>
     {
         public ProducerRepository(MovieCollectionContext context) : base(context)
         {

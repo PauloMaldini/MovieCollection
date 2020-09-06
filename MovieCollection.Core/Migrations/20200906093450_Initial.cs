@@ -64,7 +64,7 @@ namespace MovieCollection.Core.Migrations
                     Description = table.Column<string>(nullable: true),
                     ProducerRefId = table.Column<long>(nullable: false),
                     YearOfIssue = table.Column<int>(nullable: false),
-                    Poster = table.Column<string>(nullable: true)
+                    PosterFileName = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {
@@ -113,18 +113,23 @@ namespace MovieCollection.Core.Migrations
                 values: new object[] { 1L, null, 2L, new DateTime(1963, 3, 27, 0, 0, 0, 0, DateTimeKind.Unspecified), false, "Квентино", "Тарантино", null, null });
 
             migrationBuilder.InsertData(
-                table: "Movies",
-                columns: new[] { "Id", "Author", "Deleted", "Description", "Name", "Poster", "ProducerRefId", "RowVersion", "YearOfIssue" },
-                values: new object[] { 1L, null, false, "", "Джанго освобожденный", "", 1L, null, 2012 });
+                table: "Producers",
+                columns: new[] { "Id", "Author", "CountryRefId", "DateOfBirth", "Deleted", "FirstName", "LastName", "MiddleName", "RowVersion" },
+                values: new object[] { 2L, null, 2L, new DateTime(1946, 12, 18, 0, 0, 0, 0, DateTimeKind.Unspecified), false, "Стивен", "Спилберг", null, null });
 
             migrationBuilder.InsertData(
                 table: "Movies",
-                columns: new[] { "Id", "Author", "Deleted", "Description", "Name", "Poster", "ProducerRefId", "RowVersion", "YearOfIssue" },
+                columns: new[] { "Id", "Author", "Deleted", "Description", "Name", "PosterFileName", "ProducerRefId", "RowVersion", "YearOfIssue" },
+                values: new object[] { 1L, null, false, "", "Джанго освобожденный", "1e5bcf73adfd4685a205d8c318bd83d8.png", 1L, null, 2012 });
+
+            migrationBuilder.InsertData(
+                table: "Movies",
+                columns: new[] { "Id", "Author", "Deleted", "Description", "Name", "PosterFileName", "ProducerRefId", "RowVersion", "YearOfIssue" },
                 values: new object[] { 2L, null, false, "", "Криминальное чтиво", "", 1L, null, 1994 });
 
             migrationBuilder.InsertData(
                 table: "Movies",
-                columns: new[] { "Id", "Author", "Deleted", "Description", "Name", "Poster", "ProducerRefId", "RowVersion", "YearOfIssue" },
+                columns: new[] { "Id", "Author", "Deleted", "Description", "Name", "PosterFileName", "ProducerRefId", "RowVersion", "YearOfIssue" },
                 values: new object[] { 3L, null, false, "", "Бесславные ублюдки", "", 1L, null, 2009 });
 
             migrationBuilder.CreateIndex(

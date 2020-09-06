@@ -26,13 +26,16 @@ namespace MovieCollection.Core.Context
 
             modelBuilder.Entity<Producer>().HasData(new Producer
                 { Id = 1, FirstName = "Квентино", LastName = "Тарантино", DateOfBirth = DateTime.Parse("1963-03-27"), CountryRefId = 2 });
+            modelBuilder.Entity<Producer>().HasData(new Producer
+                { Id = 2, FirstName = "Стивен", LastName = "Спилберг", DateOfBirth = DateTime.Parse("1946-12-18"), CountryRefId = 2 });
+
 
             modelBuilder.Entity<Movie>().HasData(new Movie
-                { Id = 1, Name = "Джанго освобожденный", Description = "", YearOfIssue = 2012, Poster = "", ProducerRefId = 1 });
+                { Id = 1, Name = "Джанго освобожденный", Description = "", YearOfIssue = 2012, PosterFileName = "1e5bcf73adfd4685a205d8c318bd83d8.png", ProducerRefId = 1 });
             modelBuilder.Entity<Movie>().HasData(new Movie
-                { Id = 2, Name = "Криминальное чтиво", Description = "", YearOfIssue = 1994, Poster = "", ProducerRefId = 1 });
+                { Id = 2, Name = "Криминальное чтиво", Description = "", YearOfIssue = 1994, PosterFileName = "", ProducerRefId = 1 });
             modelBuilder.Entity<Movie>().HasData(new Movie
-                { Id = 3, Name = "Бесславные ублюдки", Description = "", YearOfIssue = 2009, Poster = "", ProducerRefId = 1 });
+                { Id = 3, Name = "Бесславные ублюдки", Description = "", YearOfIssue = 2009, PosterFileName = "", ProducerRefId = 1 });
         }
     }
 }

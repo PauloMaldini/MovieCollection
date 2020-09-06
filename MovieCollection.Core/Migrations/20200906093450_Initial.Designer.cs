@@ -9,7 +9,7 @@ using MovieCollection.Core.Context;
 namespace MovieCollection.Core.Migrations
 {
     [DbContext(typeof(MovieCollectionContext))]
-    [Migration("20200906043855_Initial")]
+    [Migration("20200906093450_Initial")]
     partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -104,7 +104,7 @@ namespace MovieCollection.Core.Migrations
                     b.Property<string>("Name")
                         .HasColumnType("TEXT");
 
-                    b.Property<string>("Poster")
+                    b.Property<string>("PosterFileName")
                         .HasColumnType("TEXT");
 
                     b.Property<long>("ProducerRefId")
@@ -130,7 +130,7 @@ namespace MovieCollection.Core.Migrations
                             Deleted = false,
                             Description = "",
                             Name = "Джанго освобожденный",
-                            Poster = "",
+                            PosterFileName = "1e5bcf73adfd4685a205d8c318bd83d8.png",
                             ProducerRefId = 1L,
                             YearOfIssue = 2012
                         },
@@ -140,7 +140,7 @@ namespace MovieCollection.Core.Migrations
                             Deleted = false,
                             Description = "",
                             Name = "Криминальное чтиво",
-                            Poster = "",
+                            PosterFileName = "",
                             ProducerRefId = 1L,
                             YearOfIssue = 1994
                         },
@@ -150,7 +150,7 @@ namespace MovieCollection.Core.Migrations
                             Deleted = false,
                             Description = "",
                             Name = "Бесславные ублюдки",
-                            Poster = "",
+                            PosterFileName = "",
                             ProducerRefId = 1L,
                             YearOfIssue = 2009
                         });
@@ -202,6 +202,15 @@ namespace MovieCollection.Core.Migrations
                             Deleted = false,
                             FirstName = "Квентино",
                             LastName = "Тарантино"
+                        },
+                        new
+                        {
+                            Id = 2L,
+                            CountryRefId = 2L,
+                            DateOfBirth = new DateTime(1946, 12, 18, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Deleted = false,
+                            FirstName = "Стивен",
+                            LastName = "Спилберг"
                         });
                 });
 

@@ -35,6 +35,7 @@ namespace MovieCollection.Web
             services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
             
             services.AddScoped<IRepository<Movie, MovieFilter, long>, MovieRepository>();
+            services.AddScoped<IRepository<Producer, ProducerFilter, long>, ProducerRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

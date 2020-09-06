@@ -5,6 +5,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.Extensions.Logging;
 using MovieCollection.Core.Entities;
 using MovieCollection.Core.Interface;
@@ -19,14 +20,17 @@ namespace MovieCollection.Web.Controllers
         private const long PageSize = 10;
         private readonly IMapper _mapper;
         private readonly IRepository<Movie, MovieFilter, long> _movieRepository;
+        private readonly IRepository<Producer, ProducerFilter, long> _producerRepository;
         #endregion
 
         #region [ Contructors ]
         public MoviesController(IMapper mapper,
-            IRepository<Movie, MovieFilter, long> movieRepository)
+            IRepository<Movie, MovieFilter, long> movieRepository,
+            IRepository<Producer, ProducerFilter, long> producerRepository)
         {
             _mapper = mapper;
             _movieRepository = movieRepository;
+            _producerRepository = producerRepository;
         }
         #endregion
 
@@ -59,9 +63,19 @@ namespace MovieCollection.Web.Controllers
         }
         
         [HttpGet("Edit/{id}")]
-        public IActionResult Edit(long id)
+        public async Task<IActionResult> Edit(long id)
         {
-            return View();
+            var movie = await _movieRepository.ReadAsync(id);
+            if (movie == null)
+            {
+                return NotFound();
+            }
+
+            var producers = await _producerRepository.ReadAsync(x => true);
+            var model = _mapper.Map<EditMovieViewModel>(movie);
+            model.Producers = new SelectList(producers, "Id", "FullName");
+            
+            return View(model);
         }
 
         [HttpPost]
