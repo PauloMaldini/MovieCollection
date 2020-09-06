@@ -5,4 +5,18 @@
     Layout = "_Layout";
 }
 
-<h2>title</h2>
+<br />
+
+<div>
+    <img src="@Model.PosterUrl" alt=""/>
+    <div>
+        <h4>@Model.Name</h4>
+        <p>@Model.YearOfIssue</p>
+        <p>@Model.Producer</p>
+        <p>@Model.Description</p>
+        <a asp-action="Edit" asp-route-id="@Model.MovieId">Редактировать</a> | 
+        <a asp-action="Delete" asp-route-id="@Model.MovieId">Удалить</a>
+    </div>
+</div>
+
+

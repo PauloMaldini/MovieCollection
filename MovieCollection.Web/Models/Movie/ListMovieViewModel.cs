@@ -1,15 +1,10 @@
 using System.Collections.Generic;
+using MovieCollection.Web.Models.Movie.Base;
 
 namespace MovieCollection.Web.Models.Movie
 {
-    public class MovieModel
+    public class MovieModel : MovieModelBase
     {
-        public string Name { get; set; }
-        
-        public string Description { get; set; }
-        
-        public long YearOfIssue { get; set; }
-        
         public string Producer { get; set; }
     }
     

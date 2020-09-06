@@ -1,4 +1,5 @@
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Linq;
 using Microsoft.EntityFrameworkCore;
 using MovieCollection.Core.Base;
 using MovieCollection.Core.Concrete;
@@ -31,6 +32,12 @@ namespace MovieCollection.Core.Entities
         public MovieRepository(MovieCollectionContext context) : base(context)
         {
             
+        }
+
+        protected override IQueryable<Movie> GetBaseQuery()
+        {
+            return DbSet.Include(x => x.Producer)
+                .ThenInclude(x => x.Country);
         }
     }
 }

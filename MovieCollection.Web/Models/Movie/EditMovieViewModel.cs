@@ -1,15 +1,10 @@
 using Microsoft.AspNetCore.Mvc.Rendering;
+using MovieCollection.Web.Models.Movie.Base;
 
 namespace MovieCollection.Web.Models.Movie
 {
-    public class EditMovieViewModel
+    public class EditMovieViewModel  : MovieModelBase
     {
-        public string Name { get; set; }
-        
-        public string Description { get; set; }
-        
-        public int YearIssue { get; set; }
-        
         public long ProducerId { get; set; }
         
         public SelectList Producers { get; set; }

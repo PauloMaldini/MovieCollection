@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
+using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using MovieCollection.Core.Entities;
@@ -16,12 +17,15 @@ namespace MovieCollection.Web.Controllers
     {
         #region [ Members ]
         private const long PageSize = 10;
+        private readonly IMapper _mapper;
         private readonly IRepository<Movie, MovieFilter, long> _movieRepository;
         #endregion
 
         #region [ Contructors ]
-        public MoviesController(IRepository<Movie, MovieFilter, long> movieRepository)
+        public MoviesController(IMapper mapper,
+            IRepository<Movie, MovieFilter, long> movieRepository)
         {
+            _mapper = mapper;
             _movieRepository = movieRepository;
         }
         #endregion
@@ -32,15 +36,20 @@ namespace MovieCollection.Web.Controllers
         {
             var movies = await _movieRepository.ReadAsync(
                 new MovieFilter { PageIndex = pageIndex, PageSize = pageSize });
-            
-            
-            return View();
+
+            return View(_mapper.Map<ListMovieViewModel>(movies));
         }
 
-        [HttpGet("{id}")]
-        public IActionResult Detail(long id)
+        [HttpGet("Detail/{id}")]
+        public async Task<IActionResult> Detail(long id)
         {
-            return View();
+            var movie = (await _movieRepository.ReadAsync(x => x.Id == id))?.FirstOrDefault(); //TODO Упростить
+            if (movie == null)
+            {
+                return NotFound();
+            }
+            
+            return View(_mapper.Map<DetailMovieViewModel>(movie));
         }
 
         [HttpGet]
@@ -49,7 +58,7 @@ namespace MovieCollection.Web.Controllers
             return View();
         }
         
-        [HttpGet("{id}")]
+        [HttpGet("Edit/{id}")]
         public IActionResult Edit(long id)
         {
             return View();

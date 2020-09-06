@@ -11,7 +11,7 @@ namespace MovieCollection.Core.Concrete
 {
     public class EFGenericRepository<TEntity, TFilter, TKey> 
          : IRepository<TEntity, TFilter, TKey>
-            where TEntity : class
+            where TEntity : class, IEntity<TKey> 
             where TFilter : IFilter
     {
         protected DbSet<TEntity> DbSet { get; }
