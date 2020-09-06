@@ -1,10 +1,11 @@
 using System;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using MovieCollection.Core.Entities;
 
 namespace MovieCollection.Core.Context
 {
-    public class MovieCollectionContext : DbContext
+    public class MovieCollectionContext : IdentityDbContext
     {
         public MovieCollectionContext (DbContextOptions<MovieCollectionContext> options)
             : base(options)
@@ -17,6 +18,8 @@ namespace MovieCollection.Core.Context
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            base.OnModelCreating(modelBuilder);
+            
             modelBuilder.Entity<Country>().HasData(new Country { Id = 1, Name = "Россия" });
             modelBuilder.Entity<Country>().HasData(new Country { Id = 2, Name = "США" });
             modelBuilder.Entity<Country>().HasData(new Country { Id = 3, Name = "Великобритания" });

@@ -37,9 +37,12 @@
     <button type="submit" class="btn btn-success">Сохранить</button>
 </form>
 
-<script>
-    const updatePreview = function (event) {
-        const element = document.getElementById('poster');
-        element.src = URL.createObjectURL(event.target.files[0]);
-    };
-</script>
+@section Scripts
+{
+    <script>
+        const updatePreview = function (event) {
+            const element = document.getElementById('poster');
+            element.src = URL.createObjectURL(event.target.files[0]);
+        };
+    </script>
+}

@@ -5,6 +5,7 @@ using System.Linq;
 using System.IO;
 using System.Threading.Tasks;
 using AutoMapper;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -17,7 +18,8 @@ using MovieCollection.Web.Models.Movie;
 
 namespace MovieCollection.Web.Controllers
 {
-    public class MoviesController : Controller
+    [Authorize]
+    public class MovieController : Controller
     {
         #region [ Members ]
         private const long PageSize = 10;
@@ -28,7 +30,7 @@ namespace MovieCollection.Web.Controllers
         #endregion
 
         #region [ Contructors ]
-        public MoviesController(IMapper mapper,
+        public MovieController(IMapper mapper,
             IWebHostEnvironment environment,
             IRepository<Movie, MovieFilter, long> movieRepository,
             IRepository<Producer, ProducerFilter, long> producerRepository)
@@ -114,7 +116,6 @@ namespace MovieCollection.Web.Controllers
         #endregion
         
         #region [ Private methods ]
-
         private async Task<string> SavePoster(IFormFile poster)
         {
             var posterFileExt = poster.ContentType.Split("/")[1];
