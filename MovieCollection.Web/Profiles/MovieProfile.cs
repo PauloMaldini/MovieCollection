@@ -31,6 +31,11 @@ namespace MovieCollection.Web.Profiles
             CreateMap<Movie, DetailMovieViewModel>();
             
             CreateMap<Movie, EditMovieViewModel>();
+
+            CreateMap<EditMovieViewModel, Movie>()
+                .ForMember(x => x.Id, 
+                    y => y.MapFrom(
+                        z => z.MovieId));
         }
     }
 }
