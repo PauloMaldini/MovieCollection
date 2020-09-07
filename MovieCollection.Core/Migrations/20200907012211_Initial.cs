@@ -225,12 +225,12 @@ namespace MovieCollection.Core.Migrations
             migrationBuilder.InsertData(
                 table: "AspNetUsers",
                 columns: new[] { "Id", "AccessFailedCount", "ConcurrencyStamp", "Email", "EmailConfirmed", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "TwoFactorEnabled", "UserName" },
-                values: new object[] { "1", 0, "a144c380-efb5-4358-8fee-3f9356921fa0", null, false, false, null, null, "USER1", "AQAAAAEAACcQAAAAENtG2RjET2k6egK9MlbWk6U8Edaf39TTjsIw8BlnkHVLsSUuewMK8RISNQ2ryBiXCQ==", null, false, "c9d62184-72d8-4605-b98f-a33e2fe2445a", false, "user1" });
+                values: new object[] { "1", 0, "c259b904-7313-4137-ba90-f20cfb165416", null, false, false, null, null, "USER1", "AQAAAAEAACcQAAAAEF53DSJfM/3Ps/7XVs26e3fSM8k5wtRgzJmvAaUCQZk/Zm2ceiHQe3doawHqACzLXg==", null, false, "f03c48ca-1f29-4baa-a19b-a2fe321766ad", false, "user1" });
 
             migrationBuilder.InsertData(
                 table: "AspNetUsers",
                 columns: new[] { "Id", "AccessFailedCount", "ConcurrencyStamp", "Email", "EmailConfirmed", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "TwoFactorEnabled", "UserName" },
-                values: new object[] { "2", 0, "016772c0-119f-4678-be36-4f8a34d546b9", null, false, false, null, null, "USER2", "AQAAAAEAACcQAAAAEEN1RSW+efMEPTjWS1DYl0vngIg/iPAPqg7uWkS8qS8eOGyR29JGH89yKIsVOjxjoA==", null, false, "f86731d9-1f81-47eb-8d23-ed80690a9586", false, "user2" });
+                values: new object[] { "2", 0, "30199205-a813-476c-b58e-6263663e6d98", null, false, false, null, null, "USER2", "AQAAAAEAACcQAAAAEEgXXHF4cvk6GEh76vCsoN4puuE47DyPsqm3XxfcvavQchyXJtxwxdyjIKY4JqlXoA==", null, false, "aeee9b26-3af9-419c-86e3-20202bb5cbfc", false, "user2" });
 
             migrationBuilder.InsertData(
                 table: "Country",
@@ -273,19 +273,69 @@ namespace MovieCollection.Core.Migrations
                 values: new object[] { 2L, null, 2L, new DateTime(1946, 12, 18, 0, 0, 0, 0, DateTimeKind.Unspecified), false, "Стивен", "Спилберг", null, null });
 
             migrationBuilder.InsertData(
-                table: "Movies",
-                columns: new[] { "Id", "Author", "Deleted", "Description", "Name", "PosterFileName", "ProducerRefId", "RowVersion", "YearOfIssue" },
-                values: new object[] { 1L, "user1", false, "", "Джанго освобожденный", "1e5bcf73adfd4685a205d8c318bd83d8.png", 1L, null, 2012 });
+                table: "Producers",
+                columns: new[] { "Id", "Author", "CountryRefId", "DateOfBirth", "Deleted", "FirstName", "LastName", "MiddleName", "RowVersion" },
+                values: new object[] { 3L, null, 6L, new DateTime(1959, 1, 28, 0, 0, 0, 0, DateTimeKind.Unspecified), false, "Фрэнк", "Дарабонт", null, null });
+
+            migrationBuilder.InsertData(
+                table: "Producers",
+                columns: new[] { "Id", "Author", "CountryRefId", "DateOfBirth", "Deleted", "FirstName", "LastName", "MiddleName", "RowVersion" },
+                values: new object[] { 4L, null, 6L, new DateTime(1974, 5, 28, 0, 0, 0, 0, DateTimeKind.Unspecified), false, "Кристиан", "Альварт", null, null });
+
+            migrationBuilder.InsertData(
+                table: "Producers",
+                columns: new[] { "Id", "Author", "CountryRefId", "DateOfBirth", "Deleted", "FirstName", "LastName", "MiddleName", "RowVersion" },
+                values: new object[] { 5L, null, 6L, new DateTime(1954, 8, 16, 0, 0, 0, 0, DateTimeKind.Unspecified), false, "Джеймс", "Кэмерон", null, null });
 
             migrationBuilder.InsertData(
                 table: "Movies",
                 columns: new[] { "Id", "Author", "Deleted", "Description", "Name", "PosterFileName", "ProducerRefId", "RowVersion", "YearOfIssue" },
-                values: new object[] { 2L, "user1", false, "", "Криминальное чтиво", "", 1L, null, 1994 });
+                values: new object[] { 1L, "user1", false, "", "Джанго освобожденный", "85157a5959894d3092f8a1cfb30cfcb5.png", 1L, null, 2012 });
 
             migrationBuilder.InsertData(
                 table: "Movies",
                 columns: new[] { "Id", "Author", "Deleted", "Description", "Name", "PosterFileName", "ProducerRefId", "RowVersion", "YearOfIssue" },
-                values: new object[] { 3L, "user2", false, "", "Бесславные ублюдки", "", 1L, null, 2009 });
+                values: new object[] { 2L, "user1", false, "", "Криминальное чтиво", "315d7e86ce92407886629fcec8e18fab.jpg", 1L, null, 1994 });
+
+            migrationBuilder.InsertData(
+                table: "Movies",
+                columns: new[] { "Id", "Author", "Deleted", "Description", "Name", "PosterFileName", "ProducerRefId", "RowVersion", "YearOfIssue" },
+                values: new object[] { 3L, "user2", false, "", "Бесславные ублюдки", "acdd66d16b944e25bfdd33249790ed2d.jpg", 1L, null, 2009 });
+
+            migrationBuilder.InsertData(
+                table: "Movies",
+                columns: new[] { "Id", "Author", "Deleted", "Description", "Name", "PosterFileName", "ProducerRefId", "RowVersion", "YearOfIssue" },
+                values: new object[] { 5L, "user1", false, "", "Спасти рядового Райана", "fc7c8ae1d2c942d79958882086735ccd.png", 2L, null, 1998 });
+
+            migrationBuilder.InsertData(
+                table: "Movies",
+                columns: new[] { "Id", "Author", "Deleted", "Description", "Name", "PosterFileName", "ProducerRefId", "RowVersion", "YearOfIssue" },
+                values: new object[] { 6L, "user1", false, "", "Инопланетянин", "b119a9c2ead8460f958106540b1fecbe.jpg", 2L, null, 1982 });
+
+            migrationBuilder.InsertData(
+                table: "Movies",
+                columns: new[] { "Id", "Author", "Deleted", "Description", "Name", "PosterFileName", "ProducerRefId", "RowVersion", "YearOfIssue" },
+                values: new object[] { 4L, "user2", false, "", "Побег из шоушенка", "ed952073c9f24e49a80f6cceb3cc9ba.jpg", 3L, null, 1994 });
+
+            migrationBuilder.InsertData(
+                table: "Movies",
+                columns: new[] { "Id", "Author", "Deleted", "Description", "Name", "PosterFileName", "ProducerRefId", "RowVersion", "YearOfIssue" },
+                values: new object[] { 7L, "user1", false, "", "Пандорум", "ffcd5ad118c74dafaac7b137607147d5.jpg", 4L, null, 2009 });
+
+            migrationBuilder.InsertData(
+                table: "Movies",
+                columns: new[] { "Id", "Author", "Deleted", "Description", "Name", "PosterFileName", "ProducerRefId", "RowVersion", "YearOfIssue" },
+                values: new object[] { 8L, "user2", false, "", "Терминатор", "9fadd792f1e94344a9138edf058ce9ab.jpg", 5L, null, 1984 });
+
+            migrationBuilder.InsertData(
+                table: "Movies",
+                columns: new[] { "Id", "Author", "Deleted", "Description", "Name", "PosterFileName", "ProducerRefId", "RowVersion", "YearOfIssue" },
+                values: new object[] { 9L, "user2", false, "", "Чужие", "274b54c8be6c42b5a39afad70b43b6c1.jpg", 5L, null, 1986 });
+
+            migrationBuilder.InsertData(
+                table: "Movies",
+                columns: new[] { "Id", "Author", "Deleted", "Description", "Name", "PosterFileName", "ProducerRefId", "RowVersion", "YearOfIssue" },
+                values: new object[] { 10L, "user1", false, "", "Терминатор 2: Судный день", "1a3a4c6c458c43a1bdf42da31932e789.jpg", 5L, null, 1991 });
 
             migrationBuilder.CreateIndex(
                 name: "IX_AspNetRoleClaims_RoleId",

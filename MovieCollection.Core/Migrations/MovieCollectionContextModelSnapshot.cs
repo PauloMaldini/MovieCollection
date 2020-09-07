@@ -133,13 +133,13 @@ namespace MovieCollection.Core.Migrations
                         {
                             Id = "1",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "a144c380-efb5-4358-8fee-3f9356921fa0",
+                            ConcurrencyStamp = "c259b904-7313-4137-ba90-f20cfb165416",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
                             NormalizedUserName = "USER1",
-                            PasswordHash = "AQAAAAEAACcQAAAAENtG2RjET2k6egK9MlbWk6U8Edaf39TTjsIw8BlnkHVLsSUuewMK8RISNQ2ryBiXCQ==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEF53DSJfM/3Ps/7XVs26e3fSM8k5wtRgzJmvAaUCQZk/Zm2ceiHQe3doawHqACzLXg==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "c9d62184-72d8-4605-b98f-a33e2fe2445a",
+                            SecurityStamp = "f03c48ca-1f29-4baa-a19b-a2fe321766ad",
                             TwoFactorEnabled = false,
                             UserName = "user1"
                         },
@@ -147,13 +147,13 @@ namespace MovieCollection.Core.Migrations
                         {
                             Id = "2",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "016772c0-119f-4678-be36-4f8a34d546b9",
+                            ConcurrencyStamp = "30199205-a813-476c-b58e-6263663e6d98",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
                             NormalizedUserName = "USER2",
-                            PasswordHash = "AQAAAAEAACcQAAAAEEN1RSW+efMEPTjWS1DYl0vngIg/iPAPqg7uWkS8qS8eOGyR29JGH89yKIsVOjxjoA==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEEgXXHF4cvk6GEh76vCsoN4puuE47DyPsqm3XxfcvavQchyXJtxwxdyjIKY4JqlXoA==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "f86731d9-1f81-47eb-8d23-ed80690a9586",
+                            SecurityStamp = "aeee9b26-3af9-419c-86e3-20202bb5cbfc",
                             TwoFactorEnabled = false,
                             UserName = "user2"
                         });
@@ -351,7 +351,7 @@ namespace MovieCollection.Core.Migrations
                             Deleted = false,
                             Description = "",
                             Name = "Джанго освобожденный",
-                            PosterFileName = "1e5bcf73adfd4685a205d8c318bd83d8.png",
+                            PosterFileName = "85157a5959894d3092f8a1cfb30cfcb5.png",
                             ProducerRefId = 1L,
                             YearOfIssue = 2012
                         },
@@ -362,7 +362,7 @@ namespace MovieCollection.Core.Migrations
                             Deleted = false,
                             Description = "",
                             Name = "Криминальное чтиво",
-                            PosterFileName = "",
+                            PosterFileName = "315d7e86ce92407886629fcec8e18fab.jpg",
                             ProducerRefId = 1L,
                             YearOfIssue = 1994
                         },
@@ -373,9 +373,86 @@ namespace MovieCollection.Core.Migrations
                             Deleted = false,
                             Description = "",
                             Name = "Бесславные ублюдки",
-                            PosterFileName = "",
+                            PosterFileName = "acdd66d16b944e25bfdd33249790ed2d.jpg",
                             ProducerRefId = 1L,
                             YearOfIssue = 2009
+                        },
+                        new
+                        {
+                            Id = 4L,
+                            Author = "user2",
+                            Deleted = false,
+                            Description = "",
+                            Name = "Побег из шоушенка",
+                            PosterFileName = "ed952073c9f24e49a80f6cceb3cc9ba.jpg",
+                            ProducerRefId = 3L,
+                            YearOfIssue = 1994
+                        },
+                        new
+                        {
+                            Id = 5L,
+                            Author = "user1",
+                            Deleted = false,
+                            Description = "",
+                            Name = "Спасти рядового Райана",
+                            PosterFileName = "fc7c8ae1d2c942d79958882086735ccd.png",
+                            ProducerRefId = 2L,
+                            YearOfIssue = 1998
+                        },
+                        new
+                        {
+                            Id = 6L,
+                            Author = "user1",
+                            Deleted = false,
+                            Description = "",
+                            Name = "Инопланетянин",
+                            PosterFileName = "b119a9c2ead8460f958106540b1fecbe.jpg",
+                            ProducerRefId = 2L,
+                            YearOfIssue = 1982
+                        },
+                        new
+                        {
+                            Id = 7L,
+                            Author = "user1",
+                            Deleted = false,
+                            Description = "",
+                            Name = "Пандорум",
+                            PosterFileName = "ffcd5ad118c74dafaac7b137607147d5.jpg",
+                            ProducerRefId = 4L,
+                            YearOfIssue = 2009
+                        },
+                        new
+                        {
+                            Id = 8L,
+                            Author = "user2",
+                            Deleted = false,
+                            Description = "",
+                            Name = "Терминатор",
+                            PosterFileName = "9fadd792f1e94344a9138edf058ce9ab.jpg",
+                            ProducerRefId = 5L,
+                            YearOfIssue = 1984
+                        },
+                        new
+                        {
+                            Id = 9L,
+                            Author = "user2",
+                            Deleted = false,
+                            Description = "",
+                            Name = "Чужие",
+                            PosterFileName = "274b54c8be6c42b5a39afad70b43b6c1.jpg",
+                            ProducerRefId = 5L,
+                            YearOfIssue = 1986
+                        },
+                        new
+                        {
+                            Id = 10L,
+                            Author = "user1",
+                            Deleted = false,
+                            Description = "",
+                            Name = "Терминатор 2: Судный день",
+                            PosterFileName = "1a3a4c6c458c43a1bdf42da31932e789.jpg",
+                            ProducerRefId = 5L,
+                            YearOfIssue = 1991
                         });
                 });
 
@@ -434,6 +511,33 @@ namespace MovieCollection.Core.Migrations
                             Deleted = false,
                             FirstName = "Стивен",
                             LastName = "Спилберг"
+                        },
+                        new
+                        {
+                            Id = 3L,
+                            CountryRefId = 6L,
+                            DateOfBirth = new DateTime(1959, 1, 28, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Deleted = false,
+                            FirstName = "Фрэнк",
+                            LastName = "Дарабонт"
+                        },
+                        new
+                        {
+                            Id = 4L,
+                            CountryRefId = 6L,
+                            DateOfBirth = new DateTime(1974, 5, 28, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Deleted = false,
+                            FirstName = "Кристиан",
+                            LastName = "Альварт"
+                        },
+                        new
+                        {
+                            Id = 5L,
+                            CountryRefId = 6L,
+                            DateOfBirth = new DateTime(1954, 8, 16, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Deleted = false,
+                            FirstName = "Джеймс",
+                            LastName = "Кэмерон"
                         });
                 });
 
