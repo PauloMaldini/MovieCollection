@@ -81,6 +81,12 @@ namespace MovieCollection.Web.Controllers
             {
                 return View(await FillEditMovieViewModelLists(model));
             }
+
+            if (model.Poster == null)
+            {
+                ModelState.AddModelError("", "Выберите постер");
+                return View(await FillEditMovieViewModelLists(model));
+            }
             
             var movie = _mapper.Map<Movie>(model);
             

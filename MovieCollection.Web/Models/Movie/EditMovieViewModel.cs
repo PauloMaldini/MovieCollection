@@ -15,7 +15,6 @@ namespace MovieCollection.Web.Models.Movie
         public long ProducerId { get; set; }
         public SelectList Producers { get; set; }
         
-        [Required]
         public IFormFile Poster { get; set; }
 
         public new IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
@@ -25,7 +24,7 @@ namespace MovieCollection.Web.Models.Movie
                 yield return valResult;
             }
            
-            if (Poster.Length > 1048576)
+            if (Poster != null && Poster.Length > 1048576)
             {
                 yield return new ValidationResult("Недопустим размер постера более 100Кб");
             }
