@@ -24,7 +24,7 @@ namespace MovieCollection.Web.Controllers
     public class MovieController : Controller
     {
         #region [ Members ]
-        private const long PageSize = 10;
+        private const long PageSize = 7;
         private readonly IMapper _mapper;
         private readonly IWebHostEnvironment _environment;
         private readonly IRepository<Movie, MovieFilter, long> _movieRepository;
@@ -121,6 +121,8 @@ namespace MovieCollection.Web.Controllers
             {
                 return View(await FillEditMovieViewModelLists(model));
             }
+
+            model.Author = User.Identity.Name;
             
             var movie = _mapper.Map(model, await _movieRepository.ReadAsync(model.MovieId));
             if (movie.Author != User.Identity.Name)

@@ -31,9 +31,11 @@ namespace MovieCollection.Web
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
+            //services.AddDbContext<MovieCollectionContext>(
+            //        builder => builder.UseSqlite("Filename=MovieCollection.db"));
             services.AddDbContext<MovieCollectionContext>(
-                    builder => builder.UseSqlite("Filename=MovieCollection.db"));
-            
+                    builder => builder.UseSqlServer(Configuration.GetConnectionString("MovieCollection")));
+
             services.AddIdentity<IdentityUser, IdentityRole>()
                 .AddEntityFrameworkStores<MovieCollectionContext>();
             
