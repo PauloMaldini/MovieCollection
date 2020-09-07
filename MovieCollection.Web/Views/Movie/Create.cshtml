@@ -5,4 +5,28 @@
     Layout = "_Layout";
 }
 
-<h2>title</h2>
+<h2>Создание нового фильма</h2>
+
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a asp-action="Index">Список</a></li>
+      <li class="breadcrumb-item active" aria-current="page">Создание</li>
+  </ol>
+</nav>
+
+<form method="post" enctype="multipart/form-data">
+    <partial name="_EditPartial" /> 
+    <button type="submit" class="btn btn-success">Сохранить</button>
+    <a class="btn btn-light" asp-action="Index">Отмена</a>
+</form>
+
+@section Scripts
+{
+    <script>
+        const updatePreview = function (event) {
+            const element = document.getElementById('poster');
+            element.src = URL.createObjectURL(event.target.files[0]);
+        };
+    </script>
+}
+

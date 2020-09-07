@@ -73,6 +73,8 @@ namespace MovieCollection.Web
 
             app.UseRouting();
 
+            app.UseStatusCodePages();
+            
             app.UseAuthentication();
             app.UseAuthorization();
 

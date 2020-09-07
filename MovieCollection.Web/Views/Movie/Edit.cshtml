@@ -5,37 +5,22 @@
     Layout = "_Layout";
 }
 
-<h2>Редактирование</h2>
+<h2>Редактирование фильма</h2>
 
-<br>
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a asp-action="Index">Список</a></li>
+      <li class="breadcrumb-item"><a asp-action="Detail" asp-route-id="@Model.MovieId">Детали</a></li>
+      <li class="breadcrumb-item active" aria-current="page">Редактирование</li>
+  </ol>
+</nav>
 
-<form class="form" asp-action="ConfirmEdit" method="post" enctype="multipart/form-data">
-    <input class="invisible" asp-for="MovieId" />
-    
-    <div class="form-group">
-        <label asp-for="Name"></label>
-        <input class="form-control" asp-for="Name">
-    </div>
-    <div class="form-group">
-        <label asp-for="YearOfIssue"></label>
-        <input class="form-control" asp-for="YearOfIssue">
-    </div>
-    <div class="form-group">
-        <label asp-for="ProducerId"></label>
-        <select class="form-control" asp-for="ProducerId" asp-items="Model.Producers"></select>
-    </div>
-    <div class="form-group">
-        <label asp-for="Description"></label>
-        <textarea class="form-control" asp-for="Description"></textarea>
-    </div>
-    <div class="form-group">
-        <label for="poster">Постер</label>
-        <img src="/img/@Model.PosterFileName" alt="" id="poster">
-        <input type="file" id="Poster" name="Poster" onchange="updatePreview(event)"/>
-    </div>
-
+<form method="post" enctype="multipart/form-data">
+    <partial name="_EditPartial" />
     <button type="submit" class="btn btn-success">Сохранить</button>
+    <a class="btn btn-light" asp-action="Detail" asp-route-id="@Model.MovieId">Отмена</a>
 </form>
+
 
 @section Scripts
 {
@@ -46,3 +31,4 @@
         };
     </script>
 }
+

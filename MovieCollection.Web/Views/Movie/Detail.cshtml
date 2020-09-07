@@ -5,18 +5,65 @@
     Layout = "_Layout";
 }
 
-<br />
+<h2>Подробная информация о фильме</h2>
 
-<div>
-    <img src="~/img/@Model.PosterFileName" alt=""/>
-    <div>
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a asp-action="Index">Список</a></li>
+      <li class="breadcrumb-item active" aria-current="page">Детали</li>
+  </ol>
+</nav>
+
+<div class="row">
+    <div class="col-md-3">
+        <img src="~/img/@Model.PosterFileName" width="100%" alt=""/>    
+    </div>
+    <div class="col-md-9">
         <h4>@Model.Name</h4>
-        <p>@Model.YearOfIssue</p>
-        <p>@Model.Producer</p>
-        <p>@Model.Description</p>
-        <a asp-action="Edit" asp-route-id="@Model.MovieId">Редактировать</a> | 
-        <a asp-action="Delete" asp-route-id="@Model.MovieId">Удалить</a>
+        <br />
+        <div class="row">
+            <div class="col-md-2">
+                <b>@Html.DisplayNameFor(x => x.YearOfIssue):</b>
+            </div>
+            <div class="col-md-10">
+                @Html.DisplayFor(x => x.YearOfIssue)                            
+            </div>
+        </div>
+        <br />
+        <div class="row">
+            <div class="col-md-2">
+                <b>@Html.DisplayNameFor(x => x.Producer):</b>
+            </div>
+            <div class="col-md-10">
+                @Html.DisplayFor(x => x.Producer)                            
+            </div>
+        </div>
+        <br />
+        <div class="row">
+            <div class="col-md-2">
+                <b>@Html.DisplayNameFor(x => x.Description):</b>
+            </div>
+            <div class="col-md-10">
+                @Html.DisplayFor(x => x.Description)                            
+            </div>
+        </div>
+        <br />
+        <div class="row">
+            <div class="col-md-2">
+                <b>@Html.DisplayNameFor(x => x.Author):</b>
+            </div>
+            <div class="col-md-10">
+                @Html.DisplayFor(x => x.Author)                            
+            </div>
+        </div>
+       
+        <br />
+        
+        <a asp-action="Edit" asp-route-id="@Model.MovieId">Редактировать</a> 
     </div>
 </div>
+
+
+
 
 

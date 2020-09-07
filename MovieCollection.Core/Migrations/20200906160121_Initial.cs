@@ -223,6 +223,16 @@ namespace MovieCollection.Core.Migrations
                 });
 
             migrationBuilder.InsertData(
+                table: "AspNetUsers",
+                columns: new[] { "Id", "AccessFailedCount", "ConcurrencyStamp", "Email", "EmailConfirmed", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "TwoFactorEnabled", "UserName" },
+                values: new object[] { "1", 0, "a144c380-efb5-4358-8fee-3f9356921fa0", null, false, false, null, null, "USER1", "AQAAAAEAACcQAAAAENtG2RjET2k6egK9MlbWk6U8Edaf39TTjsIw8BlnkHVLsSUuewMK8RISNQ2ryBiXCQ==", null, false, "c9d62184-72d8-4605-b98f-a33e2fe2445a", false, "user1" });
+
+            migrationBuilder.InsertData(
+                table: "AspNetUsers",
+                columns: new[] { "Id", "AccessFailedCount", "ConcurrencyStamp", "Email", "EmailConfirmed", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "TwoFactorEnabled", "UserName" },
+                values: new object[] { "2", 0, "016772c0-119f-4678-be36-4f8a34d546b9", null, false, false, null, null, "USER2", "AQAAAAEAACcQAAAAEEN1RSW+efMEPTjWS1DYl0vngIg/iPAPqg7uWkS8qS8eOGyR29JGH89yKIsVOjxjoA==", null, false, "f86731d9-1f81-47eb-8d23-ed80690a9586", false, "user2" });
+
+            migrationBuilder.InsertData(
                 table: "Country",
                 columns: new[] { "Id", "Author", "Code", "Deleted", "Description", "Name", "RowVersion" },
                 values: new object[] { 1L, null, null, false, null, "Россия", null });
@@ -265,17 +275,17 @@ namespace MovieCollection.Core.Migrations
             migrationBuilder.InsertData(
                 table: "Movies",
                 columns: new[] { "Id", "Author", "Deleted", "Description", "Name", "PosterFileName", "ProducerRefId", "RowVersion", "YearOfIssue" },
-                values: new object[] { 1L, null, false, "", "Джанго освобожденный", "1e5bcf73adfd4685a205d8c318bd83d8.png", 1L, null, 2012 });
+                values: new object[] { 1L, "user1", false, "", "Джанго освобожденный", "1e5bcf73adfd4685a205d8c318bd83d8.png", 1L, null, 2012 });
 
             migrationBuilder.InsertData(
                 table: "Movies",
                 columns: new[] { "Id", "Author", "Deleted", "Description", "Name", "PosterFileName", "ProducerRefId", "RowVersion", "YearOfIssue" },
-                values: new object[] { 2L, null, false, "", "Криминальное чтиво", "", 1L, null, 1994 });
+                values: new object[] { 2L, "user1", false, "", "Криминальное чтиво", "", 1L, null, 1994 });
 
             migrationBuilder.InsertData(
                 table: "Movies",
                 columns: new[] { "Id", "Author", "Deleted", "Description", "Name", "PosterFileName", "ProducerRefId", "RowVersion", "YearOfIssue" },
-                values: new object[] { 3L, null, false, "", "Бесславные ублюдки", "", 1L, null, 2009 });
+                values: new object[] { 3L, "user2", false, "", "Бесславные ублюдки", "", 1L, null, 2009 });
 
             migrationBuilder.CreateIndex(
                 name: "IX_AspNetRoleClaims_RoleId",

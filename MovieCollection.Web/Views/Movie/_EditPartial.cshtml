@@ -1,0 +1,35 @@
+@model MovieCollection.Web.Models.Movie.EditMovieViewModel
+
+<div asp-validation-summary="All" class="text-danger"></div>
+<input class="invisible" asp-for="MovieId" />
+<div class="form-group">
+    <label asp-for="Name"></label>
+    <input class="form-control" asp-for="Name">
+    <span asp-validation-for="Name" class="text-danger"></span>
+</div>
+<div class="form-group">
+    <label asp-for="YearOfIssue"></label>
+    <input class="form-control" asp-for="YearOfIssue">
+    <span asp-validation-for="YearOfIssue" class="text-danger"></span>
+</div>
+<div class="form-group">
+    <label asp-for="ProducerId"></label>
+    <select class="form-control" asp-for="ProducerId" asp-items="Model.Producers"></select>
+    <span asp-validation-for="ProducerId" class="text-danger"></span>
+</div>
+<div class="form-group">
+    <label asp-for="Description"></label>
+    <textarea class="form-control" asp-for="Description"></textarea>
+    <span asp-validation-for="Description" class="text-danger"></span>
+</div>
+<div class="form-group">
+    <label for="poster">Постер</label> <br>
+    <span asp-validation-for="Poster" class="text-danger"></span>
+    <input type="file" id="Poster" name="Poster" onchange="updatePreview(event)"/> <br><br>
+    <img height="200px" src="/img/@Model.PosterFileName" alt="" id="poster">
+</div>
+
+   
+
+
+

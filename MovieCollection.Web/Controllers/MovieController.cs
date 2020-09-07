@@ -3,12 +3,14 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.IO;
+using System.Net;
 using System.Threading.Tasks;
 using AutoMapper;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.Extensions.Logging;
 using MovieCollection.Core.Entities;
@@ -43,16 +45,17 @@ namespace MovieCollection.Web.Controllers
         #endregion
 
         #region [ Public methods ]
-        [HttpGet]
         public async Task<IActionResult> Index(long pageIndex = 0, long pageSize = PageSize)
         {
             var movies = await _movieRepository.ReadAsync(
                 new MovieFilter { PageIndex = pageIndex, PageSize = pageSize });
-
-            return View(_mapper.Map<ListMovieViewModel>(movies));
+            var model = _mapper.Map<ListMovieViewModel>(movies);
+            model.PageIndex = pageIndex;
+            model.PageSize = pageSize;
+            
+            return View(model);
         }
 
-        [HttpGet("Detail/{id}")]
         public async Task<IActionResult> Detail(long id)
         {
             var movie = (await _movieRepository.ReadAsync(x => x.Id == id))?.FirstOrDefault(); //TODO Упростить
@@ -65,12 +68,34 @@ namespace MovieCollection.Web.Controllers
         }
 
         [HttpGet]
-        public IActionResult Create()
+        public async Task<IActionResult> Create()
         {
-            return View();
+            var producers = await _producerRepository.ReadAsync(x => true);
+            return View(await FillEditMovieViewModelLists());
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Create(EditMovieViewModel model)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View(await FillEditMovieViewModelLists(model));
+            }
+            
+            var movie = _mapper.Map<Movie>(model);
+            
+            //TODO Здесь что-то вроде распределенной транзакции, поэтому нужен дополнительный функционал поддержания целостности данных
+            //TODO Нужно вынести из контроллера в Core
+            var posterFileName = await SavePoster(model.Poster);
+            movie.PosterFileName = posterFileName;
+            movie.Author = User.Identity.Name;
+            _movieRepository.Create(movie);
+            await _movieRepository.SaveAsync(); 
+            
+            return RedirectToAction($"Detail", new { id = movie.Id });
         }
         
-        [HttpGet("Edit/{id}")]
+        [HttpGet]
         public async Task<IActionResult> Edit(long id)
         {
             var movie = await _movieRepository.ReadAsync(id);
@@ -78,40 +103,43 @@ namespace MovieCollection.Web.Controllers
             {
                 return NotFound();
             }
-
-            var producers = await _producerRepository.ReadAsync(x => true);
-            var model = _mapper.Map<EditMovieViewModel>(movie);
-            model.Producers = new SelectList(producers, "Id", "FullName");
+            
+            if (movie.Author != User.Identity.Name)
+            {
+                return StatusCode(StatusCodes.Status403Forbidden);
+            }
+            
+            var model = await FillEditMovieViewModelLists(_mapper.Map<EditMovieViewModel>(movie));
             
             return View(model);
         }
 
         [HttpPost]
-        public async Task<IActionResult> ConfirmEdit(EditMovieViewModel model)
+        public async Task<IActionResult> Edit(EditMovieViewModel model)
         {
-            var movie = await _movieRepository.ReadAsync(model.MovieId);
+            if (!ModelState.IsValid)
+            {
+                return View(await FillEditMovieViewModelLists(model));
+            }
             
-            //TODO Проверка на права
-            //...
+            var movie = _mapper.Map(model, await _movieRepository.ReadAsync(model.MovieId));
+            if (movie.Author != User.Identity.Name)
+            {
+                return StatusCode(StatusCodes.Status403Forbidden);
+            }
 
-            //TODO Вынести в сервис
+            //TODO Здесь что-то вроде распределенной транзакции, поэтому нужен дополнительный функционал поддержания целостности данных
+            //TODO Нужно вынести из контроллера в Core
             if (model.Poster != null)
             {
                 var posterFileName = await SavePoster(model.Poster);
                 DeletePoster(movie.PosterFileName);    
-                model.PosterFileName = posterFileName;
+                movie.PosterFileName = posterFileName;
             }
-            
-            _mapper.Map(model, movie);
             _movieRepository.Update(movie);
             await _movieRepository.SaveAsync(); 
             
             return RedirectToAction($"Detail", new { id = movie.Id });
-        }
-
-        public IActionResult Delete(long id)
-        {
-            return View();
         }
         #endregion
         
@@ -137,6 +165,15 @@ namespace MovieCollection.Web.Controllers
             {
                 System.IO.File.Delete(posterFilePath);
             }
+        }
+
+        private async Task<EditMovieViewModel> FillEditMovieViewModelLists(EditMovieViewModel model = null)
+        {
+            model ??= new EditMovieViewModel();
+            var producers = await _producerRepository.ReadAsync(x => true);
+            model.Producers = new SelectList(producers, "Id", "FullName");
+
+            return model;
         }
         #endregion
     }

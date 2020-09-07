@@ -9,7 +9,7 @@ using MovieCollection.Core.Context;
 namespace MovieCollection.Core.Migrations
 {
     [DbContext(typeof(MovieCollectionContext))]
-    [Migration("20200906130552_Initial")]
+    [Migration("20200906160121_Initial")]
     partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -129,6 +129,36 @@ namespace MovieCollection.Core.Migrations
                         .HasName("UserNameIndex");
 
                     b.ToTable("AspNetUsers");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = "1",
+                            AccessFailedCount = 0,
+                            ConcurrencyStamp = "a144c380-efb5-4358-8fee-3f9356921fa0",
+                            EmailConfirmed = false,
+                            LockoutEnabled = false,
+                            NormalizedUserName = "USER1",
+                            PasswordHash = "AQAAAAEAACcQAAAAENtG2RjET2k6egK9MlbWk6U8Edaf39TTjsIw8BlnkHVLsSUuewMK8RISNQ2ryBiXCQ==",
+                            PhoneNumberConfirmed = false,
+                            SecurityStamp = "c9d62184-72d8-4605-b98f-a33e2fe2445a",
+                            TwoFactorEnabled = false,
+                            UserName = "user1"
+                        },
+                        new
+                        {
+                            Id = "2",
+                            AccessFailedCount = 0,
+                            ConcurrencyStamp = "016772c0-119f-4678-be36-4f8a34d546b9",
+                            EmailConfirmed = false,
+                            LockoutEnabled = false,
+                            NormalizedUserName = "USER2",
+                            PasswordHash = "AQAAAAEAACcQAAAAEEN1RSW+efMEPTjWS1DYl0vngIg/iPAPqg7uWkS8qS8eOGyR29JGH89yKIsVOjxjoA==",
+                            PhoneNumberConfirmed = false,
+                            SecurityStamp = "f86731d9-1f81-47eb-8d23-ed80690a9586",
+                            TwoFactorEnabled = false,
+                            UserName = "user2"
+                        });
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserClaim<string>", b =>
@@ -319,6 +349,7 @@ namespace MovieCollection.Core.Migrations
                         new
                         {
                             Id = 1L,
+                            Author = "user1",
                             Deleted = false,
                             Description = "",
                             Name = "Джанго освобожденный",
@@ -329,6 +360,7 @@ namespace MovieCollection.Core.Migrations
                         new
                         {
                             Id = 2L,
+                            Author = "user1",
                             Deleted = false,
                             Description = "",
                             Name = "Криминальное чтиво",
@@ -339,6 +371,7 @@ namespace MovieCollection.Core.Migrations
                         new
                         {
                             Id = 3L,
+                            Author = "user2",
                             Deleted = false,
                             Description = "",
                             Name = "Бесславные ублюдки",
